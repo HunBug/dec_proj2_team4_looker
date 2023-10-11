@@ -16,7 +16,12 @@ include: "/views/**/*.view"
 persist_with: dec_proj2_team4_default_datagroup
 
 explore: fct_orders {
+#this is my explore name
+  label: "Sales Explore"
+
+#this is my order views name when seeing it on the left side bar in "explore" mode.
   view_label: "Orders"
+
 
   join: dim_customers {
     view_label: "Customer"
