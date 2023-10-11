@@ -9,5 +9,19 @@ datagroup: dec_proj2_team4_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+
+# include all the views
+include: "/views/**/*.view"
+
 persist_with: dec_proj2_team4_default_datagroup
 
+explore: fct_orders {
+  view_label: "Orders"
+
+  join: dim_customers {
+    view_label: "Customer"
+    sql_on: ${dim_customers.customers_key} = ${fct_orders.customer_fk};;
+    type: left_outer
+    relationship: many_to_one
+  }
+}
