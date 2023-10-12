@@ -40,6 +40,13 @@ explore: fct_orders {
     sql_on: ${dim_products.products_key} = ${fct_orders.product_fk} ;;
     type: left_outer
     relationship: many_to_one
+  }
 
+  join: dim_categories{
+    view_label: "Categories"
+    sql_on: ${dim_products.category_id} = ${dim_categories.category_id} ;;
+    type: left_outer
+    relationship: many_to_one
+    fields: [dim_categories.category_name, dim_categories.description]
   }
 }
