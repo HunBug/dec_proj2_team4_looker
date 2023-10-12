@@ -123,6 +123,7 @@ view: dim_employees {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."VALID_FROM" ;;
+    hidden: yes
   }
 
   dimension_group: valid_to {
@@ -131,6 +132,7 @@ view: dim_employees {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."VALID_TO" ;;
+    hidden: yes
   }
   measure: count {
     type: count
