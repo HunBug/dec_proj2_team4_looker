@@ -96,4 +96,5 @@ view: dim_customers {
     type: count
     drill_fields: [contact_name, company_name]
   }
+
 }

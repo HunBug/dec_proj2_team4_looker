@@ -8,12 +8,10 @@ datagroup: dec_proj2_team4_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
-
+persist_with: dec_proj2_team4_default_datagroup
 
 # include all the views
 include: "/views/**/*.view"
-
-persist_with: dec_proj2_team4_default_datagroup
 
 explore: fct_orders {
 #this is my explore name
