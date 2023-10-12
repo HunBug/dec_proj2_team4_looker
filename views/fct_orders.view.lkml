@@ -25,8 +25,12 @@ view: fct_orders {
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
   measure: total_amount {
+    label: "Sales Amount"
     type: sum
-    sql: ${amount} ;;  }
+    sql: ${amount} ;;
+    value_format_name: usd
+    drill_fields: [detail*]
+    }
 
   measure: average_amount {
     label: "Average Sales Price"
