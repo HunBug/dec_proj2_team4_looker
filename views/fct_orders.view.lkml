@@ -14,6 +14,7 @@ view: fct_orders {
   dimension: amount {
     type: number
     sql: ${TABLE}."AMOUNT" ;;
+    value_format_name: usd
   }
 
   set: detail {
