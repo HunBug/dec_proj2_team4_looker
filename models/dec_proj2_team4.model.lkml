@@ -28,3 +28,15 @@ explore: fct_orders {
     relationship: many_to_one
   }
 }
+
+explore: fct_products {
+  label: "Products Explore"
+  view_label: "Products"
+
+  join: dim_suppliers {
+    view_label: "Suppliers"
+    sql_on: ${dim_suppliers.supplier_fk} = ${fct_products.supplier_fk} ;;
+    type: left_outer
+    relationship: many_to_one
+  }
+}
