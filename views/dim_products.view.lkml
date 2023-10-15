@@ -16,6 +16,15 @@ view: dim_products {
     sql: ${TABLE}."DISCONTINUED" ;;
   }
 
+  dimension: category_id {
+    type: number
+    sql: ${TABLE}."CATEGORY_ID" ;;
+  }
+
+  dimension: supplier_id {
+    type: number
+    sql: ${TABLE}."SUPPLIER_ID" ;;
+  }
   dimension: product_id {
     type: number
     sql: ${TABLE}."PRODUCT_ID" ;;
@@ -76,6 +85,7 @@ view: dim_products {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."VALID_FROM" ;;
+    hidden: yes
   }
 
   dimension_group: valid_to {
@@ -84,6 +94,7 @@ view: dim_products {
     convert_tz: no
     datatype: date
     sql: ${TABLE}."VALID_TO" ;;
+    hidden: yes
   }
   measure: count {
     type: count

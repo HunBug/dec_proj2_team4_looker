@@ -14,6 +14,11 @@ view: fct_orders {
   dimension: amount {
     type: number
     sql: ${TABLE}."AMOUNT" ;;
+    value_format_name: usd
+  }
+
+  set: detail {
+    fields: [order_id, order_date, amount, dim_products.product_name, dim_customers.company_name, dim_customers.contact_name]
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
@@ -21,11 +26,20 @@ view: fct_orders {
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
   measure: total_amount {
+    label: "Sales Amount"
     type: sum
-    sql: ${amount} ;;  }
+    sql: ${amount} ;;
+    value_format_name: usd
+    drill_fields: [detail*]
+    }
+
   measure: average_amount {
+    label: "Average Sales Price"
     type: average
-    sql: ${amount} ;;  }
+    sql: ${amount} ;;
+    value_format_name: usd
+    drill_fields: [detail*]
+    }
 
   dimension: customer_fk {
     type: string
@@ -61,7 +75,7 @@ view: fct_orders {
 
   dimension_group: order {
     type: time
-    timeframes: [raw, date, week, month, quarter, year]
+    timeframes: [raw, date, week, month, month_name, quarter, year]
     convert_tz: no
     datatype: date
     sql: ${TABLE}."ORDER_DATE" ;;
@@ -167,4 +181,6 @@ view: fct_orders {
     type: count
     drill_fields: [ship_name]
   }
+
+
 }
