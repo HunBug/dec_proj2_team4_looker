@@ -27,6 +27,11 @@ view: fct_products {
     type: average
     sql: ${latest_unit_price} ;;  }
 
+  dimension: product_name {
+    type: string
+    sql: ${TABLE}."PRODUCT_NAME" ;;
+  }
+
   dimension: max_unit_price {
     type: number
     sql: ${TABLE}."MAX_UNIT_PRICE" ;;
@@ -35,6 +40,11 @@ view: fct_products {
   dimension: min_unit_price {
     type: number
     sql: ${TABLE}."MIN_UNIT_PRICE" ;;
+  }
+
+  dimension: avg_unit_price {
+    type: number
+    sql:  ${TABLE}."AVG_UNIT_PRICE" ;;
   }
 
   dimension: product_fk {
